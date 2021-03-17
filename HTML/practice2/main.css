@@ -1,0 +1,24 @@
+.contentList{
+    width: 400px;
+    border: 1px solid silver;
+    background: #e4edee;
+}
+.logoEvolution{
+    border: 1px solid silver;
+    width: 120px;
+    padding: 20px 20px 5px 20px;
+}
+.logoEvolution img{
+    border: 1px solid silver;
+}
+.evolution {
+    display: flex;
+    justify-content: space-between;
+}
+.logoYears{
+    display: flex;
+    justify-content: space-between;
+}
+.text{
+    width: auto;
+}

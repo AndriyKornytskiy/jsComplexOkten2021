@@ -1,0 +1,52 @@
+body {
+    background: cornsilk;
+}
+
+.head {
+    background: goldenrod;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    background: silver;
+}
+
+img {
+    border: 4px double purple;
+    border-radius: 10px;
+}
+
+h1, h2 {
+    font-family: "Audiowide", sans-serif;
+    text-align: center;
+}
+
+span {
+    border: 2px solid black;
+    padding: 10px;
+    font-style: italic;
+    background: steelblue;
+}
+
+ul {
+    background: aquamarine;
+    width: max-content;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.films {
+    background: palevioletred;
+}
+
