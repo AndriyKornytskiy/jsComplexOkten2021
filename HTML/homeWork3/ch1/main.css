@@ -1,0 +1,39 @@
+.father {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.a, .b, .c {
+    background: lightgray;
+}
+
+.a {
+    width: 100%;
+    min-height: 285px;
+}
+
+.bc {
+    width: 100%;
+    display: flex;
+}
+
+.b {
+    width: 70%;
+    min-height: 550px;
+}
+
+.c {
+    width: 30%;
+    min-height: 550px;
+}
+
+p {
+    text-align: center;
+    padding-top: 250px;
+    color: #626262;
+}
+.a > p {
+    padding-top: 100px;
+}
