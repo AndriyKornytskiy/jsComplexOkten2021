@@ -1,3 +1,4 @@
+/*
 // --створити масив та вивести його в консоль:
 //     - з 5 числових значень
 let numbers = [1,99,100500,3.14,-1];
@@ -141,13 +142,13 @@ for (let i = 0; i < 2; i++) {
 }
 
 // - Відтворити роботу годинника, відрахувавши  2 години  (3 цикли! 1й - години, 2й - хвилини, 3й - секунди)
-/*for (let h = 0; h < 2; h++){
+/!*for (let h = 0; h < 2; h++){
     for (let m = 0; m < 60; m++){
         for (let s = 0; s < 60; s++){
             console.log(h, ':', m, ':', s);
         }
     }
-}*/
+}*!/
 
 // Додатково
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
@@ -262,7 +263,201 @@ console.log(copyOf10);
 
 // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу скопіювати значення одного масиву в інший.
 let copyOfTen = [];
-for (i = 0; i < tenNumbers.length; i++){
+for (let i = 0; i < tenNumbers.length; i++){
     copyOfTen[i] = tenNumbers[i];
 }
-console.log(copyOfTen);
+console.log(copyOfTen);*/
+
+// ============ ДОРОБЛЕНА ЧАСТИНА ==========================================!!!!
+//
+// зробити масив з 10 чисел [2,17,13,6,22,31,45,66,100,-18]та:
+let arrN = [2,17,13,6,22,31,45,66,100,-18];
+//     1. перебрати його циклом while
+let ite = 0;
+while (ite < arrN.length){
+    console.log(arrN[ite]);
+    ite++;
+}
+//     2. перебрати його циклом for
+for (const number of arrN) {
+    console.log(number);
+}
+//     3. перебрати циклом while та вивести  числа тільки з непарним індексом
+let it = 0;
+while (it < arrN.length){
+    if (it % 2 !== 0){
+        console.log(it);
+    }
+    it++;
+}
+
+// 4. перебрати циклом for та вивести  числа тільки з непарним індексом
+for (let i = 0; i < arrN.length; i++){
+    if (i % 2 !== 0){
+        console.log(i);
+    }
+}
+// 5. перебрати циклом while та вивести  числа тільки парні  значення
+let o = 0;
+while (o < arrN.length){
+    if (arrN[o] % 2 === 0){
+        console.log(arrN[o]);
+    }
+    o++;
+}
+
+// 6. перебрати циклом for та вивести  числа тільки парні  значення
+for (const number of arrN) {
+    if (number % 2 === 0){
+        console.log(number);
+    }
+}
+
+// 7. замінити кожне число кратне 3 на слово "okten"
+let newArrN = [];
+for (let t = 0; t < arrN.length; t++) {
+    newArrN[t] = arrN[t];
+    if (arrN[t] % 3 === 0){
+    newArrN[t] = 'okten';
+    }
+}
+console.log(newArrN);
+
+// 8. вивести масив в зворотньому порядку.
+for (let i = arrN.length - 1; i >= 0; i--){
+    console.log(arrN[i]);
+}
+
+// 9. всі попередні завдання (окрім 8), але в зворотньому циклі (с заду на перед)
+let rev = [2,17,13,6,22,31,45,66,100,-18];
+
+let revI = rev.length -1;
+while (revI >= 0){
+    console.log(arrN[revI]);
+    revI--;
+}
+//-----------------------------------------------
+let revIt = rev.length - 1;
+while (revIt >= 0){
+    if (revIt % 2 !== 0){
+        console.log(revIt);
+    }
+    revIt--;
+}
+//-----------------------------------------------
+for (let i = rev.length - 1; i >= 0; i--){
+    if (i % 2 !== 0){
+        console.log(i);
+    }
+}
+//-----------------------------------------------
+let revo = rev.length - 1;
+while (revo >= 0){
+    if (rev[revo] % 2 === 0){
+        console.log(rev[revo]);
+    }
+    revo--;
+}
+//-----------------------------------------------
+for (let i = rev.length - 1; i >= 0; i--){
+    if (rev[i] % 2 === 0){
+        console.log(rev[i]);
+    }
+}
+//-----------------------------------------------
+let newRev = [];
+for (let i = rev.length - 1; i >= 0; i--) {
+    newRev[i] = rev[i];
+    if (rev[i] % 3 === 0){
+        newRev[i] = 'okten';
+    }
+}
+console.log(newRev);
+
+// 10
+// створити пустий масив та :
+//     1. заповнити його 50 парними числами за допомоги циклу.
+let even = [];
+for (let i = 1; i <= 100; i++){
+    if (i % 2 === 0){
+        even.push(i)
+    }
+}
+console.log(even);
+
+// 2. заповнити його 50 непарними числами за допомоги циклу.
+let odd = [];
+for (let i = 1; i <= 100; i++){
+    if (i % 2 !== 0){
+        odd.push(i)
+    }
+}
+console.log(odd);
+
+// 3. используя Math.random заполнить массив из ???(сколько хотите) элементов.
+//     диапазон рандома 8 до 732. (но сначала пробуйте БЕЗ ДИАПАЗОНА!)
+let emptyRandom = [];
+for (let i = 0; i < 10; i++){
+    emptyRandom.push(Math.random());
+}
+console.log(emptyRandom);
+
+let newEmptyRandom = [];
+for (let i = 0; i < 10; i++){
+    newEmptyRandom.push(parseInt(Math.random() * (732 - 8 ) + 8));
+}
+console.log(newEmptyRandom);
+
+// 2. вывести на консоль  каждый третий елемент
+let newEmptyRandom3 = [];
+for (let i = 0; i < 10; i+=3){
+    newEmptyRandom3.push(parseInt(Math.random() * (732 - 8 ) + 8));
+}
+console.log(newEmptyRandom3);
+
+// 3. вывести на консоль  каждый третий елемент но при условии что его значение является парным.
+let newEmptyRandom4 = [];
+    for (let i = 0; i < 10; i += 3){
+        newEmptyRandom4.push(parseInt(Math.random() * (732 - 8 ) + 8));
+    if (newEmptyRandom4[i] % 2 === 0){
+        console.log(newEmptyRandom4);
+    }
+}
+
+// 4. вывести на консоль  каждый третий елемент но при условии что он имеет парное значение и записать их в другой массив.
+
+// 5. Вывести каждый елемент массива у которого соседний с права элемент - парный
+let findEve = [5,6,8,530,830,7,308,30,83,3];
+for (let i = 0; i < findEve.length; i++) {
+    if (findEve[i] % 2 === 0){
+        console.log(findEve[i - 1]);
+    }
+}
+
+// 5 масив з числами [100,250,50,168,120,345,188], Які характеризують вартість окремої покупки. обрахувати середній чек.
+let basket = [100,250,50,168,120,345,188];
+let sum = 0;
+for (let number of basket) {
+    sum += number;
+}
+let midleCheck = sum / basket.length;
+console.log(midleCheck);
+
+// 3 створити масив з рандомними значеннями, помножити всі його елементи на 5 та перемістити їх в інший масив.
+let randomArray = [34,5,36,435,788,7,9,568,97,89];
+let multyFive = [];
+for (let number of randomArray) {
+    let res = number * 5;
+    multyFive.push(res);
+}
+console.log(multyFive);
+
+// 4 створити масив з будь якими значеннями (стрінги, числа, і тд...). пройтись по ньому, і якщо об'єкт є числом, додати його в інший масив.
+let all = ['hello', 12, true, 'false', 10, -5, 3.14, 'okten', 'five', [123,456]];
+let allNums = [];
+for (let allElement of all) {
+    if (typeof allElement === 'number'){
+        allNums.push(allElement);
+    }
+}
+console.log(allNums);
