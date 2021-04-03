@@ -73,24 +73,48 @@ const number = sumArray([30,4,6,77,3,30]);
 console.log(number);
 
 // 8) створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
-function arithmeticMean (array = []) {
+function arithmeticMean(array = []) {
     let sum = 0;
     for (let arrayElement of array) {
         sum += arrayElement;
     }
-    let arithmeticMean = sum / array.length;
-    return arithmeticMean;
+    return sum / array.length;
 }
-const mid = arithmeticMean([30,4,6,77,3,30,4,546]);
+
+const mid = arithmeticMean([30, 4, 6, 77, 3, 30, 4, 546]);
 console.log(mid);
 
 // 9) Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
 // EXAMPLE:
-//     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
+let man = [{name: 'Dima', age: 13}, {model: 'Camry'}, {wife: 'Anna', children: true}]; // ===> [ name, age, model ]
+function getKeys(arrayOfObjects = []) {
+    let keys = [];
+    for (const arrElem of arrayOfObjects) {
+        for (const arrElemKey in arrElem) {
+            keys.push(arrElemKey);
+        }
+    }
+    return keys;
+}
+
+let manKey = getKeys(man);
+console.log(manKey);
 
 // 10) Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
 // EXAMPLE:
-//     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
+let man2 = [{name: 'Dima', age: 13}, {model: 'Camry'}]  //===> [ Dima, 13, Camry ]
+function getValues(arrayOfObjects = []) {
+    let values = [];
+    for (const arrElem of arrayOfObjects) {
+        for (const arrElemValue in arrElem) {
+            values.push(arrElem[arrElemValue]);
+        }
+    }
+    return values;
+}
+
+let manValues = getValues(man2);
+console.log(manValues);
 
 // 11) створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
 //     EXAMPLE:
@@ -98,3 +122,18 @@ console.log(mid);
 //     [2,3,4,5]
 // результат
 //     [3,5,7,9]
+function sumArrays(array1, array2) {
+    let sum = [];
+    for (let i = 0; i < array1.length; i++){
+        for (let j = 0; j < array2.length; j++){
+            if (i === j){
+                sum.push(array1[i] + array2[j]);
+            }
+        }
+    }
+    return sum;
+}
+const sumArrays1 = sumArrays([1,2,3,4,7,9], [2,3,4,5,13,91]);
+console.log(sumArrays1);
+
+
