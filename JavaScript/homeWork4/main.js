@@ -122,14 +122,12 @@ console.log(manValues);
 //     [2,3,4,5]
 // результат
 //     [3,5,7,9]
+
+//                                     (!!!!ВИКОНУЄТЬСЯ ОДНИМ ЦИКЛОМ НЕ ПОТРІБНО ВКЛАДЕНОСТІ!!!!)
 function sumArrays(array1, array2) {
     let sum = [];
     for (let i = 0; i < array1.length; i++){
-        for (let j = 0; j < array2.length; j++){
-            if (i === j){
-                sum.push(array1[i] + array2[j]);
-            }
-        }
+        sum.push(array1[i] + array2[i]);
     }
     return sum;
 }
@@ -139,17 +137,17 @@ console.log(sumArrays1);
 // ============================================================================================
 
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
+
+//                                 (!!!!МОЖНА ВИКОРИСТАТИ ДВІ ПЕРЕВІРКИ НА МАКС І МІН В ОДНОМУ ЦИКЛІ!!!!)
 function maxAndMin(numbers) {
     let max = arguments[0];
     let min = arguments[0];
-    for (let i = 0; i < arguments.length; i++){
-        if (arguments[i] > max) {
-            max = arguments[i];
+    for (const element of arguments) {
+        if (element < min){
+            min = element;
         }
-        for (let j = arguments.length - 1; j >= 0; j--){
-            if (arguments[j] < min){
-                min = arguments[j];
-            }
+        if (element > max){
+            max = element;
         }
     }
     console.log(max);
