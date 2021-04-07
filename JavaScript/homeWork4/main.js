@@ -159,20 +159,79 @@ console.log(resolt1);
 
 // - Взяти задачі з завдання 10 та 9 та обєднати їх в одну динамічну функцію.
 //   Що б я міг сам вибрати повернути мені масив ключів чи масив значень.
+function getKeysOrValues(arrayOfObjects = [], keyOrValue) {
+    let resolt = [];
+    if (keyOrValue === 'key'){
+        for (const arrElem of arrayOfObjects) {
+            for (const arrElemKey in arrElem) {
+                resolt.push(arrElemKey);
+            }
+        }
+    }
+    if (keyOrValue === 'value'){
+        for (const arrElem of arrayOfObjects) {
+            for (const arrElemKey in arrElem) {
+                resolt.push(arrElem[arrElemKey]);
+            }
+        }
+    }
+    return resolt;
+}
+const keysOrValues = getKeysOrValues(man, 'key');
+console.log(keysOrValues);
+const keysOrValues2 = getKeysOrValues(man, 'value');
+console.log(keysOrValues2);
+
 
 // - Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
 //   EXAMPLE:
 //   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
 //   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
 //   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
-//
+function replaceIndex (array, index){
+    for (let i = 0; i < array.length; i++){
+        if (i === index){
+            let slice = array.slice(i, i + 1);
+            array.splice(i, 1);
+            array.splice(i + 1, 0, slice[0])
+        }
+    }
+    return array;
+}
+const replaceIndex1 = replaceIndex([9,8,0,4], 0);
+console.log(replaceIndex1);
+const replaceIndex2 = replaceIndex([9,8,0,4], 1);
+console.log(replaceIndex2);
+const replaceIndex3 = replaceIndex([9,8,0,4], 2);
+console.log(replaceIndex3);
+
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100
 // EXAMPLE:
 // [1,0,6,0,3] => [1,6,3,0,0]
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
-//
+function zeroToEnd (array){
+    let numbs = [];
+    let zeros = [];
+    if (array.length >= 2 && array.length <= 100){
+        for (const arrayElement of array) {
+            if (arrayElement > 0 || arrayElement < 0){
+                numbs.push(arrayElement);
+            }else {
+                zeros.push(arrayElement);
+            }
+        }
+    }
+    return numbs.concat(zeros);
+}
+const zeroToEnd1 = zeroToEnd([1,0,6,0,3]);
+const zeroToEnd2 = zeroToEnd([0,1,2,3,4]);
+const zeroToEnd3 = zeroToEnd([0,0,1,0]);
+console.log(zeroToEnd1);
+console.log(zeroToEnd2);
+console.log(zeroToEnd3);
+
 // - Дано список імен.
 let n1 = '    Harry       Potter      '
 let n2 = '    Ron       Whisley      '
