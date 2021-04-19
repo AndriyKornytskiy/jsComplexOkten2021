@@ -304,67 +304,25 @@ checkBox.checked;
 checkBox.setAttribute('id', `check${j+1}`);
 document.body.appendChild(checkBox);
 }
-filteredArray = [];
+let res = usersWithAddress;
 check1.onclick = () => {
     if (check1.checked) {
-        if (filteredArray.length) {
-            filteredArray.filter(value => {
-                if (!value.isMarried) {
-                    // filteredArray = [];
-                    filteredArray.push(value);
-                    filtered.innerText = JSON.stringify(filteredArray);
-                }
-            });
-        } else {
-            usersWithAddress.filter(value => {
-                if (!value.isMarried){
-                    filteredArray.push(value);
-                    filtered.innerText = JSON.stringify(filteredArray);
-                }
-            });
-        }
+        res = res.filter(value => !value.isMarried);
+        filtered.innerText = JSON.stringify(res);
     }
 }
+
 check2.onclick = () => {
     if (check2.checked) {
-        if (filteredArray.length) {
-            filteredArray.filter(value => {
-                if (value.age >= 29) {
-                    // filteredArray = [];
-                    filteredArray.push(value)
-                    filtered.innerText = JSON.stringify(filteredArray);
-                }
-            });
-        } else {
-            usersWithAddress.filter(value => {
-                if (value.age >= 29){
-                    filteredArray.push(value);
-                    filtered.innerText = JSON.stringify(filteredArray);
-                }
-            });
-        }
+        res = res.filter(value => value.age >= 29);
+        filtered.innerText = JSON.stringify(res);
     }
 }
+
 check3.onclick = () => {
     if (check3.checked) {
-        if (filteredArray.length) {
-            filteredArray.filter(value => {
-                if (value.address.city === 'Kyiv') {
-                    // filteredArray = [];
-                    filteredArray.push(value)
-                    filtered.innerText = JSON.stringify(filteredArray);
-                }
-            });
-        } else {
-            usersWithAddress.filter(value => {
-                if (value.address.city === 'Kyiv'){
-                    filteredArray.push(value);
-                    filtered.innerText = JSON.stringify(filteredArray);
-                }
-            });
-        }
+        res = res.filter(value => value.address.city === 'Kyiv');
+        filtered.innerText = JSON.stringify(res);
     }
 }
-
-
 
